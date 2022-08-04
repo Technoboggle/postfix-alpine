@@ -1,0 +1,6 @@
+.git
+*docker-compose*
+# comment
+*/temp*
+*/*/temp*
+temp?
