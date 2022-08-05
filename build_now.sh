@@ -19,10 +19,10 @@ docker build -f Dockerfile -t technoboggle/postfix-alpine:"$postfix_ver-$alpine_
 #--progress=plain 
 
 docker run -it -d --rm -p 25:25 -p 465:465 -p 583:583 -p 110:110 --name mypostfix technoboggle/postfix-alpine:"$postfix_ver-$alpine_ver"
-docker tag technoboggle/postfix-alpine:"$postfix_ver-$alpine_ver" technoboggle/postfix-alpine:latest
+#docker tag technoboggle/postfix-alpine:"$postfix_ver-$alpine_ver" technoboggle/postfix-alpine:latest
 docker login
 docker push technoboggle/postfix-alpine:"$postfix_ver-$alpine_ver"
-docker push technoboggle/postfix-alpine:latest
-#docker container stop -t 10 mypostfix
+#docker push technoboggle/postfix-alpine:latest
+docker container stop -t 10 mypostfix
 
 cd "$owd"

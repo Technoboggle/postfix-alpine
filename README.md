@@ -3,6 +3,22 @@
 
 
 
+![Trueosiris Rules](https://img.shields.io/badge/trueosiris-rules-f08060)
+
+[![Docker Pulls](https://badgen.net/docker/pulls/trueosiris/godaddypy?icon=docker&label=pulls)](https://hub.docker.com/r/trueosiris/godaddypy/)
+[![Docker Stars](https://badgen.net/docker/stars/trueosiris/godaddypy?icon=docker&label=stars)](https://hub.docker.com/r/trueosiris/godaddypy/)
+[![Docker Image Size](https://badgen.net/docker/size/trueosiris/godaddypy?icon=docker&label=image%20size)](https://hub.docker.com/r/trueosiris/godaddypy/)
+![Github stars](https://badgen.net/github/stars/trueosiris/docker-godaddypy?icon=github&label=stars)
+![Github forks](https://badgen.net/github/forks/trueosiris/docker-godaddypy?icon=github&label=forks)
+![Github issues](https://img.shields.io/github/issues/TrueOsiris/docker-godaddypy)
+![Github last-commit](https://img.shields.io/github/last-commit/TrueOsiris/docker-godaddypy)
+
+
+
+
+
+
+
 # The following commands to build image and upload to dockerhub
 ```
 
@@ -29,3 +45,5 @@ docker push technoboggle/postfix-alpine:3.7.2-3.16.1
 docker push technoboggle/postfix-alpine:latest
 docker container stop -t 10 mypostfix
 
+
+deprecated the use of the :latest tag as it seeds confusion
