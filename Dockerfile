@@ -1,12 +1,12 @@
-FROM alpine:3.16.1
+FROM alpine:3.17.0
 
 # Technoboggle Build time arguments.
 ARG BUILD_DATE
 ARG VCS_REF
 ARG BUILD_VERSION
 
-ENV ALPINE_VERSION 3.16.1
-ENV POSTFIX_VERSION 3.7.2
+ENV ALPINE_VERSION 3.17.0
+ENV POSTFIX_VERSION 3.7.3-r1
 
 # Labels.
 LABEL maintainer="edward.finlayson@btinternet.com"
