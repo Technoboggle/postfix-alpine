@@ -4,7 +4,7 @@ owd="`pwd`"
 cd "$(dirname "$0")"
 
 postfix_ver="3.7.3-r1"
-alpine_ver="3.17.0"
+alpine_ver="3.17.1"
 
 # Setting File permissions
 xattr -c .git
