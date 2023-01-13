@@ -1,4 +1,4 @@
-FROM alpine:3.17.0
+FROM alpine:3.17.1
 
 # Technoboggle Build time arguments.
 ARG BUILD_DATE
