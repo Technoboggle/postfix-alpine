@@ -3,6 +3,14 @@
 owd="$(pwd)"
 cd "$(dirname "$0")" || exit
 
+if [ -f .env ]; then
+    export $(cat .env | xargs)
+fi
+
+if [ -f .perms ]; then
+    export $(cat .perms | xargs)
+fi
+
 postfix_ver="3.7.3-r1"
 alpine_ver="3.17.1"
 
@@ -22,13 +30,14 @@ current_builder=$(docker buildx ls | grep -i '\*' | head -n1 | awk '{print $1;}'
 
 docker buildx create --name tb_builder --use --bootstrap
 
-docker login -u="technoboggle" -p="dckr_pat_FhwkY2NiSssfRBW2sJP6zfkXsjo"
+docker login -u="${DOCKER_USER}" -p="${DOCKER_PAT}"
 
-docker buildx build -f Dockerfile --platform linux/arm64,linux/amd64,linux/386 \
-    -f Dockerfile \
-    -t technoboggle/postfix-alpine:"$postfix_ver-$alpine_ver" \
+docker buildx build -f Dockerfile \
+    --platform linux/arm64,linux/amd64,linux/amd64/v2,linux/386,linux/armhf,linux/s390x,linux/ppc64le \
+    -t technoboggle/postfix-alpine:"${POSTFIX_VERSION}-${ALPINE_VERSION}" \
     --build-arg BUILD_DATE="$(date -u +'%Y-%m-%dT%H:%M:%SZ')" \
     --build-arg VCS_REF="$(git rev-parse --verify HEAD)" \
+    --build-arg ALPINE_VERSION="${ALPINE_VERSION}" \
     --build-arg BUILD_VERSION=0.05 \
     --force-rm \
     --no-cache \

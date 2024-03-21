@@ -1,4 +1,5 @@
 .git
+.perms
 *docker-compose*
 # comment
 */temp*
