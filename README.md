@@ -1,7 +1,7 @@
 
 [![Known Vulnerabilities](https://snyk.io/test/github/Technoboggle/postfix-alpine/badge.svg)](https://snyk.io/test/github/Technoboggle/postfix-alpine)
 
-![Trueosiris Rules](https://img.shields.io/badge/technoboggle-rules-f08060)
+![Technoboggle Rules](https://img.shields.io/badge/technoboggle-rules-f08060)
 
 [![Docker Pulls](https://badgen.net/docker/pulls/technoboggle/postfix-alpine?icon=docker&label=pulls)](https://hub.docker.com/r/technoboggle/postfix-alpine/)
 [![Docker Stars](https://badgen.net/docker/stars/technoboggle/postfix-alpine?icon=docker&label=stars)](https://hub.docker.com/r/technoboggle/postfix-alpine/)
