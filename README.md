@@ -1,22 +1,15 @@
 
 [![Known Vulnerabilities](https://snyk.io/test/github/Technoboggle/postfix-alpine/badge.svg)](https://snyk.io/test/github/Technoboggle/postfix-alpine)
 
+![Trueosiris Rules](https://img.shields.io/badge/technoboggle-rules-f08060)
 
-
-![Trueosiris Rules](https://img.shields.io/badge/trueosiris-rules-f08060)
-
-[![Docker Pulls](https://badgen.net/docker/pulls/trueosiris/godaddypy?icon=docker&label=pulls)](https://hub.docker.com/r/trueosiris/godaddypy/)
-[![Docker Stars](https://badgen.net/docker/stars/trueosiris/godaddypy?icon=docker&label=stars)](https://hub.docker.com/r/trueosiris/godaddypy/)
-[![Docker Image Size](https://badgen.net/docker/size/trueosiris/godaddypy?icon=docker&label=image%20size)](https://hub.docker.com/r/trueosiris/godaddypy/)
-![Github stars](https://badgen.net/github/stars/trueosiris/docker-godaddypy?icon=github&label=stars)
-![Github forks](https://badgen.net/github/forks/trueosiris/docker-godaddypy?icon=github&label=forks)
-![Github issues](https://img.shields.io/github/issues/TrueOsiris/docker-godaddypy)
-![Github last-commit](https://img.shields.io/github/last-commit/TrueOsiris/docker-godaddypy)
-
-
-
-
-
+[![Docker Pulls](https://badgen.net/docker/pulls/technoboggle/postfix-alpine?icon=docker&label=pulls)](https://hub.docker.com/r/technoboggle/postfix-alpine/)
+[![Docker Stars](https://badgen.net/docker/stars/technoboggle/postfix-alpine?icon=docker&label=stars)](https://hub.docker.com/r/technoboggle/postfix-alpine/)
+[![Docker Image Size](https://badgen.net/docker/size/technoboggle/postfix-alpine?icon=docker&label=image%20size)](https://hub.docker.com/r/technoboggle/postfix-alpine/)
+![Github stars](https://badgen.net/github/stars/technoboggle/postfix-alpine?icon=github&label=stars)
+![Github forks](https://badgen.net/github/forks/technoboggle/postfix-alpine?icon=github&label=forks)
+![Github issues](https://img.shields.io/github/issues/technoboggle/postfix-alpine)
+![Github last-commit](https://img.shields.io/github/last-commit/technoboggle/postfix-alpine)
 
 
 # The following commands to build image and upload to dockerhub

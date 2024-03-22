@@ -1,13 +1,25 @@
-ARG ALPINE_VERSION
+ARG ALPINE_VERSION="${ALPINE_VERSION}"
 
-FROM alpine:${ALPINE_VERSION}
+FROM alpine:${ALPINE_VERSION} as alpine-upgraded
 
 # Technoboggle Build time arguments.
 ARG BUILD_DATE
 ARG VCS_REF
 ARG BUILD_VERSION
 
-ARG POSTFIX_VERSION=${POSTFIX_VERSION}
+ARG POSTFIX_VERSION="${POSTFIX_VERSION}"
+ARG MAINTAINER="${MAINTAINER}"
+ARG AUTHORNAME="${AUTHORNAME}"
+ARG AUTHORS="${AUTHORS}"
+ARG VERSION="${VERSION}"
+
+ARG SCHEMAVERSION="${SCHEMAVERSION}"
+ARG NAME="${NAME}"
+ARG DESCRIPTION="${DESCRIPTION}"
+ARG URL="${URL}"
+ARG VCS_URL="${VCS_URL}"
+ARG VENDOR="${VENDOR}"
+ARG BUILDVERSION="${BUILDVERSION}"
 
 # Labels.
 LABEL maintainer=${MAINTAINER}
@@ -30,7 +42,17 @@ LABEL org.label-schema.docker.cmd=${DOCKERCMD}
 LABEL org.label-schema.docker.cmd="docker run -it -d -p 16379:6379 --rm --name mypostfix technoboggle/postfix-alpine:${POSTFIX_VERSION}-${ALPINE_VERSION}"
 
 
-RUN apk add --no-cache bash postfix postfix-pcre ca-certificates cyrus-sasl-login cyrus-sasl libsasl
+RUN echo "alpine:${ALPINE_VERSION}\n"; echo "BUILD_DATE:${BUILD_DATE}\n"; \
+    apk update --no-cache && \
+    apk upgrade --no-cache && \
+    apk add --no-cache bash postfix postfix-pcre ca-certificates cyrus-sasl-login cyrus-sasl libsasl
+
+# Main image
+FROM scratch
+
+COPY --from=alpine-upgraded / /
+
+CMD ["/bin/sh"]
 
 COPY conf /etc/postfix
 COPY entrypoint.sh /entrypont.sh
