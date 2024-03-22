@@ -1,6 +1,6 @@
 ARG ALPINE_VERSION
 
-FROM alpine:${ALPINE_VERSION} as alpine-upgraded
+FROM alpine:${ALPINE_VERSION} as alpineUpgraded
 
 # Technoboggle Build time arguments.
 ARG BUILD_DATE="${BUILD_DATE}"
@@ -28,7 +28,6 @@ LABEL net.technoboggle.authorname=${AUTHORNAME} \
       net.technoboggle.version=${VERSION} \
       net.technoboggle.description=${DESCRIPTION} \
       net.technoboggle.buildDate=${BUILD_DATE}
-
 LABEL org.label-schema.schema-version=${SCHEMAVERSION}
 LABEL org.label-schema.build-date=${BUILD_DATE}
 LABEL org.label-schema.name=${NAME}
@@ -50,7 +49,7 @@ RUN echo "alpine:${ALPINE_VERSION}\n"; echo "BUILD_DATE:${BUILD_DATE}\n"; \
 # Main image
 FROM scratch
 
-COPY --from=alpine-upgraded / /
+COPY --from=alpineUpgraded / /
 
 CMD ["/bin/sh"]
 
