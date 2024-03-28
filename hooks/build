@@ -13,7 +13,7 @@ if [ -f ../env.hcl ]; then
     export $(cat ../env.hcl | xargs)
 fi
 
-DOCKERCMD='docker run -it -d -p 16379:6379 --rm --name myposstfix technoboggle/postfix-alpine:'"${REDIS_VERSION}-${ALPINE_VERSION}"
+DOCKERCMD='docker run -it -d -p 16379:6379 --rm --name mypostfix technoboggle/postfix-alpine:'"${REDIS_VERSION}-${ALPINE_VERSION}"
 BUILD_DATE="$(date -u +'%Y-%m-%dT%H:%M:%SZ')"
 VCS_REF="$SOURCE_COMMIT"
 
@@ -38,5 +38,5 @@ docker build \
     --build-arg BUILD_DATE="$BUILD_DATE" \
     --build-arg VCS_REF="$VCS_REF" \
     --build-arg DOCKERCMD="$DOCKERCMD" \
-    -t "technoboggle/redis-alpine:BUILD_TEST-DO_NOT_USE" \
-    -f "$DOCKERFILE_PATH" -t "$IMAGE_NAME" .
+    -t "technoboggle/postfix-alpine:BUILD_TEST-DO_NOT_USE" \
+    -f "$DOCKERFILE_PATH" .

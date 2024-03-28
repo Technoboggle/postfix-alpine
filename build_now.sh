@@ -37,19 +37,20 @@ find "$(pwd)" -type f \( -iname \*.sh -o -iname \*.py \) -exec chmod ugo+x {} \;
 chmod 0666 .gitignore
 chmod 0666 .dockerignore
 
-current_builder=$(docker buildx ls | grep -i '\*' | head -n1 | awk '{print $1;}')
+#current_builder=$(docker buildx ls | grep -i 'docker\-container' | head -n1 | awk '{print $1;}')
+current_builder=$(docker buildx ls | grep -i '\s\*' | head -n1 | awk '{print $1;}')
 
-docker buildx create --name tb_builder --use --bootstrap
+docker buildx create --name technoboggle_builder --use --bootstrap --platform=linux/arm/v7,linux/arm64,linux/amd64,linux/arm64/v8,linux/386,linux/armhf,linux/s390x,linux/arm/v7,linux/arm/v6,linux/ppc64le
 
 docker login -u="${DOCKER_USER}" -p="${DOCKER_PAT}"
 
 docker buildx bake -f docker-bake.hcl -f env.hcl --no-cache --push
 
-docker run -it -d --rm -p 25:25 -p 465:465 -p 583:583 -p 110:110 --name mypostfix technoboggle/postfix-alpine:"$postfix_ver-$alpine_ver"
+docker run -it -d --rm -p 25:25 -p 465:465 -p 583:583 -p 110:110 --name mypostfix technoboggle/postfix-alpine:"${POSTFIX_VERSION}-${ALPINE_VERSION}"
 
 docker container stop -t 10 mypostfix
 
 docker buildx use "${current_builder}"
-docker buildx rm tb_builder
+docker buildx rm technoboggle_builder
 
 cd "$owd" || exit
